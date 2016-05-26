@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>loginmodule</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>SITE_ROOT</param-name>
+    <param-value>http://localhost:8080/loginmodule/</param-value>
+  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>AdminLoginServlet</display-name>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class>kapatel.dhruv.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <url-pattern>/AdminLoginProcess.do</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>LoginFormValidator</display-name>
+    <filter-name>LoginFormValidator</filter-name>
+    <filter-class>kapatel.dhruv.filters.LoginFormValidator</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFormValidator</filter-name>
+    <url-pattern>/AdminLoginProcess.do</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>kapatel.dhruv.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>SessionCheck</filter-name>
+  	<filter-class>kapatel.dhruv.filters.SessionCheck</filter-class>
+  	<init-param>
+  		<description>excludelist</description>
+  		<param-name>excludelist</param-name>
+  		<param-value>/login.jsp,/error.jsp</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>loginpage</param-name>
+  		<param-value>/login.jsp</param-value>
+  	</init-param>
+  	
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>SessionCheck</filter-name>
+  	<!-- <url-pattern>*.do</url-pattern> -->
+  	<url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  
+	<error-page>
+	  <!-- Uncaught exception -->
+	  <exception-type>java.lang.Throwable</exception-type>
+	  <location>/error.jsp</location>
+	</error-page>
+  
+  
+</web-app>

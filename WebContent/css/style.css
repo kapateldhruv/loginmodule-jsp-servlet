@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+
+/* validation css */
+/*
+input.error { border: 1px solid red; }
+label.error {
+	background: url('images/unchecked.gif') no-repeat; 
+	padding-left: 16px;
+	margin-left: .3em; 
+	color:red;
+}
+ label.valid {
+	background: url('images/checked.gif') no-repeat;
+	display: block;
+	width: 16px;
+	height: 16px;
+} */
+
+.into_div
+{
+	padding: 30px 0;
+}
+
+.bg-danger{
+	padding: 5px;
+}
+.bg-danger p{
+	margin: 0;
+}
+.margin_bottom15
+{
+	margin-bottom: 15px;
+}
+
+.padding5{
+	padding: 5px;
+}
